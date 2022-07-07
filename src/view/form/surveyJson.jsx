@@ -1,0 +1,198 @@
+export const surveyJson = {
+  pages: [
+    {
+      name: "page1",
+      navigationTitle: "Part 1",
+      navigationDescription: "Identity",
+      elements: [
+        {
+          type: "image",
+          name: "first_page_image",
+          imageLink:
+            "https://egerie-software.com/wp-content/themes/egerie/img/egerie-logo.svg"
+        },
+        {
+          type: "panel",
+          name: "unique_case_id_textbox",
+          elements: [
+            {
+              type: "panel",
+              name: "identity",
+              title: "Identidy".toLocaleUpperCase(),
+              hasNone: true,
+              showNumber: true,
+              elements: [
+                {
+                  type: "text",
+                  title: "Firstname",
+                  name: "firstname",
+                  description: "ORIGIN OR OVERLOAD - What's your firstname ?",
+                  placeHolder: "My firstname is...",
+                  hideNumber: true,
+                  isRequired: true
+                },
+                {
+                  type: "dropdown",
+                  name: "car",
+                  title: "Car",
+                  inputType: "text",
+                  description: "ORIGIN OR OVERLOAD - What car you driving?",
+                  hasNone: true,
+                  isRequired: true,
+                  choices: ["Renault", "volkswagen", "Audi", "Peugeot"]
+                },
+                {
+                  type: "textcustom",
+                  name: "name",
+                  title: "Name",
+                  description: "PERSONALIZED - What's your name ?",
+                  placeHolder: "My name is...",
+                  toto: "test",
+                  hideNumber: true,
+                  isRequired: true
+                },
+                {
+                  type: "selectcustom",
+                  name: "post",
+                  title: "Post",
+                  description: "PERSONALIZED - What's your professional post ?",
+                  hasNone: true,
+                  isRequired: true,
+                  choices: [
+                    "Designer",
+                    "Developer",
+                    "Manager",
+                    "Administration"
+                  ]
+                },
+                {
+                  type: "text",
+                  name: "age",
+                  title: "Age",
+                  inputType: "number",
+                  description: "How old are you ?",
+                  autoComplete: "age",
+                  hideNumber: true
+                },
+                {
+                  type: "boolean",
+                  name: "identity",
+                  labelTrue: "Mr.",
+                  labelFalse: "Mrs.",
+                  indent: 3,
+                  hideNumber: true
+                }
+              ]
+            },
+            {
+              type: "panel",
+              name: "data_collector_information",
+              elements: [
+                {
+                  type: "text",
+                  name: "framework",
+                  title: "Framework ?",
+                  inputType: "text",
+                  description: "What's your framework ?",
+                  hideNumber: true
+                },
+                {
+                  type: "text",
+                  name: "bdd",
+                  title: "Database",
+                  inputType: "text",
+                  description: "What's your database ?"
+                },
+                {
+                  type: "text",
+                  name: "phone",
+                  title: "Phone",
+                  inputType: "tel",
+                  description: "What's your professional phone ?"
+                },
+                {
+                  type: "text",
+                  name: "email",
+                  title: "Email",
+                  description: "What's your Email ?",
+                  inputType: "email"
+                },
+                {
+                  type: "text",
+                  name: "birthday",
+                  title: "Birthday",
+                  description: "What's your birthday ?",
+                  inputType: "date"
+                }
+              ],
+              title: "Data Collector Information",
+              showNumber: true,
+              showQuestionNumbers: "off"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      name: "page2",
+      navigationTitle: "Part 2",
+      navigationDescription: "Opinion",
+      elements: [
+        {
+          type: "image",
+          name: "first_page_image",
+          imageLink:
+            "https://egerie-software.com/wp-content/themes/egerie/img/egerie-logo.svg"
+        },
+        {
+          type: "rating",
+          name: "nps_score",
+          title:
+            "On a scale of zero to ten, how likely are you to recommend our compagny to a friend or colleague ?",
+          rateMin: 0,
+          rateMax: 10
+        },
+        {
+          type: "checkbox",
+          name: "promoter_features2",
+          title: "Which features do you value the most?",
+          visible: false,
+          visibleIf: "{nps_score} >= 9",
+          validators: [
+            {
+              type: "answercount",
+              text: "Please select two features maximum.",
+              maxCount: 2
+            }
+          ],
+          choices: [
+            "Performance",
+            "Stability",
+            "User Interface",
+            "Complete Functionality"
+          ],
+          hasOther: true,
+          otherText: "Other feature:",
+          colCount: 2
+        },
+        {
+          type: "comment",
+          name: "passive_experience",
+          title: "What do you like about our product?",
+          visible: false,
+          visibleIf: "{nps_score} > 6  and {nps_score} < 9"
+        },
+        {
+          type: "comment",
+          name: "disappointed_experience",
+          title:
+            "What do you miss or find disappointing in your experience with our products?",
+          visible: false,
+          visibleIf: "{nps_score} notempty"
+        }
+      ]
+    }
+  ],
+  showProgressBar: "top",
+  progressBarType: "buttons"
+};
