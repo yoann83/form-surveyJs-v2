@@ -2,11 +2,10 @@ import React, { useState } from "react";
 import { ReactQuestionFactory } from "survey-react";
 import Select from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
-
 /* style Overload */
 //import "./select.scss";
 
-export default function SelectComponent(props) {
+export default function OverloadSelectWidget(props) {
   const [choice, setchoice] = useState("");
   const onSelectChange = (e) => {
     setchoice(e.target.value);
@@ -44,5 +43,5 @@ export default function SelectComponent(props) {
 }
 /* only overload original type ("text", "dropdown" ...) and uncomment scss */
 ReactQuestionFactory.Instance.registerQuestion("dropdownOrigin", (props) => {
-  return React.createElement(SelectComponent, props);
+  return React.createElement(OverloadSelectWidget, props);
 });

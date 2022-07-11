@@ -2,10 +2,11 @@ import React from "react";
 import * as Survey from "survey-react";
 import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
-
+/* style Custom */
 import "./select.scss";
 
 export class CustomSelectModel extends Survey.Question {
+  //select type in json form to work
   getType() {
     return "selectcustom";
   }
@@ -18,7 +19,7 @@ export class CustomText extends Survey.SurveyElementBase {
       choice: ""
     };
   }
-
+  //get datas in json of SurveyJs
   get question() {
     return this.props.question;
   }
@@ -47,7 +48,6 @@ export class CustomText extends Survey.SurveyElementBase {
           ))}
         </Select>
         {/*
-        {this.question.toto}
         <pre>{JSON.stringify(this.question, null, 2)}</pre>
         */}
       </div>
@@ -55,11 +55,18 @@ export class CustomText extends Survey.SurveyElementBase {
   }
 }
 
+/* 
+Add attributs.
+Warning : attributes with arrays must be filled
+*/
 Survey.Serializer.addClass(
   "selectcustom",
   [
     {
       name: "choices"
+    },
+    {
+      name: "attrPerso"
     }
   ],
   function () {

@@ -1,11 +1,10 @@
 import React from "react";
 import { ReactQuestionFactory } from "survey-react";
 import TextField from "@mui/material/TextField";
-
 /* style Overload */
 //import "./textField.scss";
 
-export default function TextFieldComponent(props) {
+export default function OverloadTextWidget(props) {
   const handleChangeValue = (e) => {
     props.question.setValueCore(e.target.value);
   };
@@ -37,5 +36,5 @@ export default function TextFieldComponent(props) {
 }
 /* only overload original type ("text", "dropdown" ...) and uncomment scss */
 ReactQuestionFactory.Instance.registerQuestion("textOrigin", (props) => {
-  return React.createElement(TextFieldComponent, props);
+  return React.createElement(OverloadTextWidget, props);
 });

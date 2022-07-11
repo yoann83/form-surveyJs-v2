@@ -1,12 +1,13 @@
 import React, { useCallback } from "react";
 import "survey-core/modern.min.css";
-import "../../styles.scss";
+import "./form.scss";
 import * as Survey from "survey-react";
+//Json for form Survey
 import { surveyJson } from "./surveyJson";
-
-import "../../controller/overload/select/SelectComponent";
-import "../../controller/overload/textField/TextFieldComponent";
-
+//import Overload
+import "../../controller/overload/select/OverloadSelectWidget";
+import "../../controller/overload/textField/OverloadTextWidget";
+// import Custom
 import "../../controller/custom/select/CustomSelectWidget";
 import "../../controller/custom/textField/CustomTextWidget";
 
