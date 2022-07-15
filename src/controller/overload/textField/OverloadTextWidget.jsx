@@ -8,8 +8,14 @@ import Fade from "@mui/material/Fade";
 import Paper from "@mui/material/Paper";
 import Popper from "@mui/material/Popper";
 import IconButton from "@mui/material/IconButton";
+import { faIdCard } from "@fortawesome/free-solid-svg-icons/faIdCard";
 import { faEllipsisV } from "@fortawesome/free-solid-svg-icons/faEllipsisV";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+import { DesktopDatePicker } from "@mui/x-date-pickers/DesktopDatePicker";
+
 /* style Overload */
 import "./textField.scss";
 
@@ -22,6 +28,12 @@ export default function OverloadTextWidget(props) {
     setAnchorEl(event.currentTarget);
     setOpen((prev) => placement !== newPlacement || !prev);
     setPlacement(newPlacement);
+  };
+
+  const [value, setValue] = React.useState(new Date());
+  const handleChangeDate = (newValue) => {
+    setValue(newValue);
+    props.question.setValueCore(newValue);
   };
 
   const handleChangeValue = (e) => {
@@ -42,14 +54,35 @@ export default function OverloadTextWidget(props) {
       ) : (
         /* construct (overloard) all components (ex : material ui) */
         <div className="TextField">
-          <TextField
-            fullWidth
-            name={props.question.name}
-            title={props.question.title}
-            label={props.question.placeHolder}
-            variant="outlined"
-            onChange={handleChangeValue}
-          />
+          <div className="icons-fields">
+            <IconButton className="icon-question">
+              <FontAwesomeIcon icon={faIdCard} />
+            </IconButton>
+          </div>
+          {props.question.inputType === "date" ? (
+            <LocalizationProvider dateAdapter={AdapterDateFns}>
+              <DesktopDatePicker
+                fullWidth
+                name={props.question?.name}
+                variant="outlined"
+                inputFormat="dd/MM/yyyy"
+                className="date"
+                value={value}
+                onChange={handleChangeDate}
+                renderInput={(params) => <TextField {...params} />}
+              />
+            </LocalizationProvider>
+          ) : (
+            <TextField
+              fullWidth
+              name={props.question?.name}
+              title={props.question?.title}
+              label={props.question?.placeHolder}
+              type={props.question?.inputType}
+              variant="outlined"
+              onChange={handleChangeValue}
+            />
+          )}
           <div className="icons-fields">
             <Button onClick={handleClick("top-start")}>
               <NotListedLocationOutlinedIcon className="icon-question" />

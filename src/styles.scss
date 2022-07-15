@@ -5,6 +5,7 @@ $success_egerie: #198754;
 $error_egerie: #FFBABB;
 $field_egerie : #f5f5f5;
 .icons-fields{
+  border-left: 1px solid $field_egerie;
   display: flex;
   align-items: center;
   padding: 0.5em;
