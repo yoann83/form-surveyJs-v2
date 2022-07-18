@@ -17,7 +17,7 @@ import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DesktopDatePicker } from "@mui/x-date-pickers/DesktopDatePicker";
 
 /* style Overload */
-import "./textField.scss";
+//import "./textField.scss";
 
 export default function OverloadTextWidget(props) {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -54,7 +54,7 @@ export default function OverloadTextWidget(props) {
       ) : (
         /* construct (overloard) all components (ex : material ui) */
         <div className="TextField">
-          <div className="icons-fields">
+          <div className="icons-help">
             <IconButton className="icon-question">
               <FontAwesomeIcon icon={faIdCard} />
             </IconButton>
@@ -83,7 +83,7 @@ export default function OverloadTextWidget(props) {
               onChange={handleChangeValue}
             />
           )}
-          <div className="icons-fields">
+          <div className="icons">
             <Button onClick={handleClick("top-start")}>
               <NotListedLocationOutlinedIcon className="icon-question" />
             </Button>
@@ -116,6 +116,6 @@ export default function OverloadTextWidget(props) {
   );
 }
 /* only overload original type ("text", "dropdown" ...) and uncomment scss */
-ReactQuestionFactory.Instance.registerQuestion("text", (props) => {
+ReactQuestionFactory.Instance.registerQuestion("textOrigine", (props) => {
   return React.createElement(OverloadTextWidget, props);
 });

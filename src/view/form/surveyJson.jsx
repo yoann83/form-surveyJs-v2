@@ -47,7 +47,11 @@ export const surveyJson = {
                   title: "Name",
                   description: "PERSONALIZED - What's your name ?",
                   placeHolder: "My name is...",
-                  attrPerso: "attrEgerie",
+                  icon: true,
+                  help: {
+                    title: "The content of the ",
+                    text: "Text textField help here..."
+                  },
                   hideNumber: true,
                   isRequired: true
                 },
@@ -58,7 +62,7 @@ export const surveyJson = {
                   description: "PERSONALIZED - What's your professional post ?",
                   hasNone: true,
                   isRequired: true,
-                  attrPerso: "attrEgerie",
+                  help: true,
                   choices: [
                     "Designer",
                     "Developer",

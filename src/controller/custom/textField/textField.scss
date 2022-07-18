@@ -5,14 +5,20 @@ $success_egerie: #198754;
 $error_egerie: #FFBABB;
 $field_egerie : #f5f5f5;
 .fieldtextcustom{
-  [aria-label]{
-    span {
-     color: $orange_egerie;
-    }
+  .TextField{
+    display: flex;
+    align-items: center;
   }
-  [role="alert"]{
-    span{
-      color: blue;
+  [role="presentation"], svg {
+    background-color: $orange_egerie;
+    color: $field_egerie;
+    border-radius: 0.5em;
+    input{
+      color: $blue_egerie;
+      width: 100vw;
+    }
+    label{
+      color: $field_egerie;
     }
   }
 }

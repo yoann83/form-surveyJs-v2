@@ -9,7 +9,7 @@ import Fade from "@mui/material/Fade";
 import Paper from "@mui/material/Paper";
 import Popper from "@mui/material/Popper";
 /* style Overload */
-import "./select.scss";
+//import "./select.scss";
 
 export default function OverloadSelectWidget(props) {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -54,7 +54,7 @@ export default function OverloadSelectWidget(props) {
               </MenuItem>
             ))}
           </Select>
-          <div className="icons-fields">
+          <div className="icons">
             <Button onClick={handleClick("top-start")}>
               <NotListedLocationOutlinedIcon className="icon-question" />
             </Button>
@@ -86,6 +86,6 @@ export default function OverloadSelectWidget(props) {
   );
 }
 /* only overload original type ("text", "dropdown" ...) and uncomment scss */
-ReactQuestionFactory.Instance.registerQuestion("dropdown", (props) => {
+ReactQuestionFactory.Instance.registerQuestion("dropdownOrigine", (props) => {
   return React.createElement(OverloadSelectWidget, props);
 });
