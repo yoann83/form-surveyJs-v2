@@ -32,16 +32,6 @@ export const surveyJson = {
               isRequired: true
             },
             {
-              type: "checkbox",
-              renderAs: "tagbox-react",
-              name: "motorcycle",
-              title: "Motorcycle",
-              hasNone: true,
-              choices: ["Ducati", "BMW", "Kawasaki", "Suzuki"],
-              titleLocation: "hidden",
-              isRequired: true
-            },
-            {
               type: "textwidget",
               name: "name",
               title: "Name",
