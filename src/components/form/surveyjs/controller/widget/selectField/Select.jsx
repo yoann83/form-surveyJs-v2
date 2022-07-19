@@ -54,9 +54,6 @@ export class Select extends Survey.SurveyElementBase {
             <SelectField
               fullWidth
               name={this.question.name}
-              title={this.question.title}
-              label={this.question.description}
-              variant={this.question.variant}
               value={this.state.choice}
               onChange={handleChangeValue}
             >

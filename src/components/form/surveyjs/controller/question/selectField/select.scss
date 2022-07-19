@@ -11,11 +11,10 @@ $field_egerie : #f5f5f5;
     background-color: $blue_egerie;
     color: $field_egerie;
     border-radius: 0.5em;
-    svg, [aria-haspopup="listbox"], .css-1sumxir-MuiFormLabel-root-MuiInputLabel-root.Mui-focused{
+    svg, label, [aria-haspopup="listbox"], .css-1sumxir-MuiFormLabel-root-MuiInputLabel-root.Mui-focused{
       color: $field_egerie;
     }
     label{
-      color: $field_egerie;
       text-shadow: black 0.1em 0.1em 0.2em;
     }
   }
