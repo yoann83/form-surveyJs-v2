@@ -15,14 +15,14 @@ import * as Survey from "survey-react";
 /* style Custom */
 import "./textField.scss";
 
-export class CustomTextModel extends Survey.Question {
+export class TextModel extends Survey.Question {
   //select type in json form to work
   getType() {
-    return "textcustom";
+    return "textwidget";
   }
 }
 
-export class CustomText extends Survey.SurveyElementBase {
+export class Text extends Survey.SurveyElementBase {
   constructor(props) {
     super(props);
     this.state = {
@@ -48,7 +48,7 @@ export class CustomText extends Survey.SurveyElementBase {
 
     if (!this.question) return null;
     return (
-      <div>
+      <div className="text-widget">
         <div className="TextField">
           {this.question.icon ? (
             <div className="icons">
@@ -109,7 +109,7 @@ Add attributs.
 Warning : attributes with arrays must be filled
 */
 Survey.Serializer.addClass(
-  "textcustom",
+  "textwidget",
   [
     {
       name: "icon"
@@ -119,11 +119,11 @@ Survey.Serializer.addClass(
     }
   ],
   function () {
-    return new CustomTextModel("");
+    return new TextModel("");
   },
   "question"
 );
 
-Survey.ReactQuestionFactory.Instance.registerQuestion("textcustom", (props) => {
-  return React.createElement(CustomText, props);
+Survey.ReactQuestionFactory.Instance.registerQuestion("textwidget", (props) => {
+  return React.createElement(Text, props);
 });

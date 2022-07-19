@@ -1,7 +1,7 @@
 import React from "react";
 import * as Survey from "survey-react";
 import MenuItem from "@mui/material/MenuItem";
-import Select from "@mui/material/Select";
+import SelectField from "@mui/material/Select";
 import NotListedLocationOutlinedIcon from "@mui/icons-material/NotListedLocationOutlined";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
@@ -11,14 +11,14 @@ import Popper from "@mui/material/Popper";
 /* style Custom */
 import "./select.scss";
 
-export class CustomSelectModel extends Survey.Question {
+export class SelectModel extends Survey.Question {
   //select type in json form to work
   getType() {
-    return "selectcustom";
+    return "selectwidget";
   }
 }
 
-export class CustomText extends Survey.SurveyElementBase {
+export class Select extends Survey.SurveyElementBase {
   constructor(props) {
     super(props);
     this.state = {
@@ -45,9 +45,9 @@ export class CustomText extends Survey.SurveyElementBase {
 
     if (!this.question) return null;
     return (
-      <div>
-        <div className="SelectField">
-          <Select
+      <div className="select-widget">
+        <div className="select">
+          <SelectField
             fullWidth
             name={this.question.name}
             title={this.question.title}
@@ -61,7 +61,7 @@ export class CustomText extends Survey.SurveyElementBase {
                 {c}
               </MenuItem>
             ))}
-          </Select>
+          </SelectField>
           {this.question.help ? (
             <div className="icons">
               <Button onClick={handleClick("top-start")}>
@@ -103,7 +103,7 @@ Add attributs.
 Warning : attributes with arrays must be filled
 */
 Survey.Serializer.addClass(
-  "selectcustom",
+  "selectwidget",
   [
     {
       name: "choices"
@@ -113,14 +113,14 @@ Survey.Serializer.addClass(
     }
   ],
   function () {
-    return new CustomSelectModel("");
+    return new SelectModel("");
   },
   "question"
 );
 
 Survey.ReactQuestionFactory.Instance.registerQuestion(
-  "selectcustom",
+  "selectwidget",
   (props) => {
-    return React.createElement(CustomText, props);
+    return React.createElement(Select, props);
   }
 );

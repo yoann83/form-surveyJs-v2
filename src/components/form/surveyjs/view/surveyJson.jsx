@@ -16,78 +16,63 @@ export const surveyJson = {
           name: "unique_case_id_textbox",
           elements: [
             {
-              type: "panel",
-              name: "identity",
-              title: "Identidy".toLocaleUpperCase(),
+              type: "text",
+              name: "firstname",
+              title: "Firstname",
+              titleLocation: "hidden",
+              isRequired: true
+            },
+            {
+              type: "dropdown",
+              name: "car",
+              title: "Car",
               hasNone: true,
-              showNumber: true,
-              elements: [
-                {
-                  type: "text",
-                  title: "Firstname",
-                  name: "firstname",
-                  description: "ORIGIN OR OVERLOAD - What's your firstname ?",
-                  placeHolder: "My firstname is...",
-                  hideNumber: true,
-                  isRequired: true
-                },
-                {
-                  type: "dropdown",
-                  name: "car",
-                  title: "Car",
-                  inputType: "text",
-                  description: "ORIGIN OR OVERLOAD - What car you driving?",
-                  hasNone: true,
-                  isRequired: true,
-                  choices: ["Renault", "volkswagen", "Audi", "Peugeot"]
-                },
-                {
-                  type: "textcustom",
-                  name: "name",
-                  title: "Name",
-                  description: "PERSONALIZED - What's your name ?",
-                  placeHolder: "My name is...",
-                  icon: true,
-                  help: {
-                    title: "The content of the ",
-                    text: "Text textField help here..."
-                  },
-                  hideNumber: true,
-                  isRequired: true
-                },
-                {
-                  type: "selectcustom",
-                  name: "post",
-                  title: "Post",
-                  description: "PERSONALIZED - What's your professional post ?",
-                  hasNone: true,
-                  isRequired: true,
-                  help: true,
-                  choices: [
-                    "Designer",
-                    "Developer",
-                    "Manager",
-                    "Administration"
-                  ]
-                },
-                {
-                  type: "text",
-                  name: "age",
-                  title: "Age",
-                  inputType: "number",
-                  description: "How old are you ?",
-                  autoComplete: "age",
-                  hideNumber: true
-                },
-                {
-                  type: "boolean",
-                  name: "identity",
-                  labelTrue: "Mr.",
-                  labelFalse: "Mrs.",
-                  indent: 3,
-                  hideNumber: true
-                }
-              ]
+              isRequired: true,
+              choices: ["Renault", "volkswagen", "Audi", "Peugeot"],
+              titleLocation: "hidden"
+            },
+            {
+              type: "textwidget",
+              name: "name",
+              title: "Name",
+              description: "PERSONALIZED - What's your name ?",
+              placeHolder: "My name is...",
+              icon: true,
+              help: {
+                title: "The content of the ",
+                text: "Text textField help here..."
+              },
+              hideNumber: true,
+              isRequired: true
+            },
+            {
+              type: "selectwidget",
+              name: "post",
+              title: "Post",
+              description: "PERSONALIZED - What's your professional post ?",
+              hasNone: true,
+              isRequired: true,
+              help: {
+                title: "The content of the ",
+                text: "Text textField help here..."
+              },
+              choices: ["Designer", "Developer", "Manager", "Administration"]
+            },
+            {
+              type: "text",
+              name: "age",
+              title: "Age",
+              inputType: "number",
+              titleLocation: "hidden",
+              hideNumber: true
+            },
+            {
+              type: "boolean",
+              name: "identity",
+              labelTrue: "Mr.",
+              labelFalse: "Mrs.",
+              indent: 3,
+              hideNumber: true
             },
             {
               type: "panel",

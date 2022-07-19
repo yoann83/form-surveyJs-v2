@@ -4,14 +4,19 @@ $white_egerie: #fff;
 $success_egerie: #198754;
 $error_egerie: #FFBABB;
 $field_egerie : #f5f5f5;
-.dropdownOverload{
-  .SelectField{
+.text-widget{
+  .TextField, svg {
     display: flex;
     align-items: center;
-  }
-  [role="presentation"], svg, [aria-haspopup="listbox"] {
-    background-color: $blue_egerie;
+    background-color: $orange_egerie;
     color: $field_egerie;
     border-radius: 0.5em;
+    input{
+      color: $blue_egerie;
+      width: 100vw;
+    }
+    label{
+      color: $field_egerie;
+    }
   }
 }
