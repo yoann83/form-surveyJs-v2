@@ -13,7 +13,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import * as Survey from "survey-react";
 /* style Custom */
-import "./textField.scss";
+import "./text.scss";
 
 export class TextModel extends Survey.Question {
   //select type in json form to work
@@ -61,9 +61,10 @@ export class Text extends Survey.SurveyElementBase {
             fullWidth
             name={this.question.name}
             title={this.question.title}
-            label={this.question.label}
+            label={this.question.title}
             variant={this.question.variant}
             onChange={handleChangeValue}
+            required={this.question.isRequired}
           />
           {/*
               <pre>{JSON.stringify(this.question, null, 2)}</pre>

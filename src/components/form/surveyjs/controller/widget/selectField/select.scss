@@ -11,5 +11,9 @@ $field_egerie : #f5f5f5;
     background-color: $orange_egerie;
     color: $field_egerie;
     border-radius: 0.5em;
+    label{
+      color: $field_egerie;
+      text-shadow: black 0.1em 0.1em 0.2em;
+    }
   }
 }

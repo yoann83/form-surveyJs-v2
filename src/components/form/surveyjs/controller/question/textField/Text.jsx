@@ -65,6 +65,7 @@ export default function Text(props) {
                 <DesktopDatePicker
                   fullWidth
                   name={props.question?.name}
+                  label={props.question?.title}
                   variant="outlined"
                   inputFormat="dd/MM/yyyy"
                   className="date"
@@ -81,6 +82,7 @@ export default function Text(props) {
                 type={props.question?.inputType}
                 variant="outlined"
                 onChange={handleChangeValue}
+                required={props.question.isRequired}
               />
             )}
             <div className="icons">

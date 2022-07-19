@@ -27,16 +27,15 @@ export const surveyJson = {
               name: "car",
               title: "Car",
               hasNone: true,
-              isRequired: true,
               choices: ["Renault", "volkswagen", "Audi", "Peugeot"],
-              titleLocation: "hidden"
+              titleLocation: "hidden",
+              isRequired: true
             },
             {
               type: "textwidget",
               name: "name",
               title: "Name",
-              description: "PERSONALIZED - What's your name ?",
-              placeHolder: "My name is...",
+              titleLocation: "hidden",
               icon: true,
               help: {
                 title: "The content of the ",
@@ -49,14 +48,14 @@ export const surveyJson = {
               type: "selectwidget",
               name: "post",
               title: "Post",
-              description: "PERSONALIZED - What's your professional post ?",
               hasNone: true,
-              isRequired: true,
+              titleLocation: "hidden",
               help: {
                 title: "The content of the ",
                 text: "Text textField help here..."
               },
-              choices: ["Designer", "Developer", "Manager", "Administration"]
+              choices: ["Designer", "Developer", "Manager", "Administration"],
+              isRequired: true
             },
             {
               type: "text",
@@ -64,6 +63,7 @@ export const surveyJson = {
               title: "Age",
               inputType: "number",
               titleLocation: "hidden",
+              isRequired: false,
               hideNumber: true
             },
             {
@@ -72,6 +72,7 @@ export const surveyJson = {
               labelTrue: "Mr.",
               labelFalse: "Mrs.",
               indent: 3,
+              isRequired: false,
               hideNumber: true
             },
             {
@@ -82,29 +83,29 @@ export const surveyJson = {
                   type: "text",
                   name: "framework",
                   title: "Framework ?",
+                  titleLocation: "hidden",
                   inputType: "text",
-                  description: "What's your framework ?",
                   hideNumber: true
                 },
                 {
                   type: "text",
                   name: "bdd",
                   title: "Database",
-                  inputType: "text",
-                  description: "What's your database ?"
+                  titleLocation: "hidden",
+                  inputType: "text"
                 },
                 {
                   type: "text",
                   name: "phone",
                   title: "Phone",
-                  inputType: "tel",
-                  description: "What's your professional phone ?"
+                  titleLocation: "hidden",
+                  inputType: "tel"
                 },
                 {
                   type: "text",
                   name: "email",
                   title: "Email",
-                  description: "What's your Email ?",
+                  titleLocation: "hidden",
                   inputType: "email"
                 },
                 {
@@ -112,6 +113,7 @@ export const surveyJson = {
                   name: "birthday",
                   title: "Birthday",
                   description: "What's your birthday ?",
+                  titleLocation: "hidden",
                   inputType: "date"
                 }
               ],

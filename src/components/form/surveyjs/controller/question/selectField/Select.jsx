@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { ReactQuestionFactory } from "survey-react";
 import SelectField from "@mui/material/Select";
+import InputLabel from "@mui/material/InputLabel";
+import FormControl from "@mui/material/FormControl";
 import MenuItem from "@mui/material/MenuItem";
 import NotListedLocationOutlinedIcon from "@mui/icons-material/NotListedLocationOutlined";
 import Typography from "@mui/material/Typography";
@@ -42,20 +44,21 @@ export default function Select(props) {
         /* construct (overloard) all components (ex : material ui) */
         <div className="select-question">
           <div className="select">
-            <SelectField
-              fullWidth
-              id={props.question.inputId}
-              value={choice}
-              label={props.question.title}
-              onChange={onSelectChange}
-              required={props.question.isRequired}
-            >
-              {props.question.choices.map((c) => (
-                <MenuItem key={c.value} value={c.value}>
-                  {c.value}
-                </MenuItem>
-              ))}
-            </SelectField>
+            <FormControl required={props.question.isRequired} fullWidth>
+              <InputLabel>{props.question.title}</InputLabel>
+              <SelectField
+                fullWidth
+                id={props.question.inputId}
+                value={choice}
+                onChange={onSelectChange}
+              >
+                {props.question.choices.map((c) => (
+                  <MenuItem key={c.value} value={c.value}>
+                    {c.value}
+                  </MenuItem>
+                ))}
+              </SelectField>
+            </FormControl>
             <div className="icons">
               <Button onClick={handleClick("top-start")}>
                 <NotListedLocationOutlinedIcon className="icon-question" />

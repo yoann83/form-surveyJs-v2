@@ -2,6 +2,8 @@ import React from "react";
 import * as Survey from "survey-react";
 import MenuItem from "@mui/material/MenuItem";
 import SelectField from "@mui/material/Select";
+import InputLabel from "@mui/material/InputLabel";
+import FormControl from "@mui/material/FormControl";
 import NotListedLocationOutlinedIcon from "@mui/icons-material/NotListedLocationOutlined";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
@@ -47,21 +49,24 @@ export class Select extends Survey.SurveyElementBase {
     return (
       <div className="select-widget">
         <div className="select">
-          <SelectField
-            fullWidth
-            name={this.question.name}
-            title={this.question.title}
-            label={this.question.description}
-            variant={this.question.variant}
-            value={this.state.choice}
-            onChange={handleChangeValue}
-          >
-            {this.question.choices.map((c) => (
-              <MenuItem key={c} value={c}>
-                {c}
-              </MenuItem>
-            ))}
-          </SelectField>
+          <FormControl required={this.question.isRequired} fullWidth>
+            <InputLabel>{this.question.title}</InputLabel>
+            <SelectField
+              fullWidth
+              name={this.question.name}
+              title={this.question.title}
+              label={this.question.description}
+              variant={this.question.variant}
+              value={this.state.choice}
+              onChange={handleChangeValue}
+            >
+              {this.question.choices.map((c) => (
+                <MenuItem key={c} value={c}>
+                  {c}
+                </MenuItem>
+              ))}
+            </SelectField>
+          </FormControl>
           {this.question.help ? (
             <div className="icons">
               <Button onClick={handleClick("top-start")}>
