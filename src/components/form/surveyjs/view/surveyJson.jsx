@@ -32,6 +32,16 @@ export const surveyJson = {
               isRequired: true
             },
             {
+              type: "checkbox",
+              renderAs: "tagbox-react",
+              name: "motorcycle",
+              title: "Motorcycle",
+              hasNone: true,
+              choices: ["Ducati", "BMW", "Kawasaki", "Suzuki"],
+              titleLocation: "hidden",
+              isRequired: true
+            },
+            {
               type: "textwidget",
               name: "name",
               title: "Name",
@@ -55,6 +65,29 @@ export const surveyJson = {
                 text: "Text textField help here..."
               },
               choices: ["Designer", "Developer", "Manager", "Administration"],
+              isRequired: true
+            },
+            {
+              type: "multiselectwidget",
+              name: "behavior",
+              title: "Behavior",
+              hasNone: true,
+              titleLocation: "hidden",
+              help: {
+                title: "The content of the ",
+                text: "Text textField help here..."
+              },
+              choices: [
+                "Active",
+                "Ambitious",
+                "Cautious",
+                "Conscientious",
+                "Creative",
+                "Logical",
+                "Organized",
+                "Perfectionist",
+                "Precise"
+              ],
               isRequired: true
             },
             {
